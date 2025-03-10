@@ -1,30 +1,43 @@
-from flask import Flask, request, jsonify, render_template
-from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+from flask import Flask, request, jsonify, render_template, url_for
+from pymongo import MongoClient
 import os
 
 app = Flask(__name__)
 
-# Ensure the database directory exists
-database_dir = os.path.join(os.path.dirname(__file__), 'database')
-os.makedirs(database_dir, exist_ok=True)
+# MongoDB connection URI
+mongo_uri = "mongodb+srv://dbUser:dbUserPassword@flask.rcv6r.mongodb.net/?retryWrites=true&w=majority&appName=flask"
+
+# Connect to MongoDB
+client = MongoClient(mongo_uri)
+db = client.get_database('student_health_card')  # Replace with your database name
+users_collection = db.users  # Replace with your collection name
 
 
-# Use an absolute path for the database
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(database_dir, "user_data.db")}'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), nullable=False)
-    message = db.Column(db.Text, nullable=False)
-
-
+# Routes
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+@app.route('/benefits')
+def benefits():
+    return render_template('benefits.html')
+
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
 
 
 @app.route('/submit', methods=['POST'])
@@ -34,16 +47,51 @@ def submit():
         if not data:
             return jsonify({'message': 'No data provided'}), 400
 
-        new_user = User(name=data.get('name'), email=data.get('email'), message=data.get('message'))
-        db.session.add(new_user)
-        db.session.commit()
-        return jsonify({'message': 'Data submitted successfully!'})
+        # Validate required fields
+        if not data.get('name') or not data.get('email') or not data.get('phone'):
+            return jsonify({'message': 'Name, email, and phone are required'}), 400
+
+        # Convert date string to a Python date object
+        dob_str = data.get('dob')
+        dob = None
+        if dob_str:
+            try:
+                dob = datetime.strptime(dob_str, '%Y-%m-%d').date()
+            except ValueError:
+                return jsonify({'message': 'Invalid date format. Use YYYY-MM-DD.'}), 400
+
+        # Create a new user document
+        new_user = {
+            'name': data.get('name'),
+            'email': data.get('email'),
+            'phone': data.get('phone'),
+            'dob': dob.isoformat(),
+            'street': data.get('street'),
+            'city': data.get('city'),
+            'state': data.get('state'),
+            'postal': data.get('postal'),
+            'country': data.get('country'),
+            'institution': data.get('institution'),
+            'student_id': data.get('student-id'),
+            'message': data.get('message')
+        }
+
+        # Insert the new user into the MongoDB collection
+        users_collection.insert_one(new_user)
+
+        # Return a success response with a redirect URL
+        return jsonify({
+            'message': 'Data submitted successfully!',
+            'redirect': url_for('thank_you')  # URL for the Thank You page
+        })
     except Exception as e:
-        db.session.rollback()
         return jsonify({'message': f'Error: {str(e)}'}), 500
 
 
+@app.route('/thank-you')
+def thank_you():
+    return render_template('thankyou.html')
+
+
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()  # Create database tables
     app.run(debug=True)

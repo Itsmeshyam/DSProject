@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Register - Student Health Card{% endblock %}
+
+{% block content %}
+    <!-- Registration Form -->
+    <section class="register">
+        <div class="container">
+            <h2>📝 Register Now</h2>
+            <form id="reg-form">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="input-group">
+                        <label for="name">👤 Full Name:</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">📧 Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="johndoe@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">📞 Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 123 456 7890" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="dob">🎂 Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                </div>
+
+                <!-- Address Information -->
+                <div class="form-section">
+                    <h3>Address Information</h3>
+                    <div class="input-group">
+                        <label for="street">🏠 Street Address:</label>
+                        <input type="text" id="street" name="street" placeholder="123 Main St" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="city">🏙️ City:</label>
+                        <input type="text" id="city" name="city" placeholder="Toronto" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="state">📍 State/Province:</label>
+                        <input type="text" id="state" name="state" placeholder="Ontario" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="postal">📮 Postal Code:</label>
+                        <input type="text" id="postal" name="postal" placeholder="A1B 2C3" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="country">🌍 Country:</label>
+                        <input type="text" id="country" name="country" placeholder="Canada" required>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <h3>Additional Information</h3>
+                    <div class="input-group">
+                        <label for="institution">🏫 Educational Institution:</label>
+                        <input type="text" id="institution" name="institution" placeholder="University of Toronto" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="student-id">🎓 Student ID:</label>
+                        <input type="text" id="student-id" name="student-id" placeholder="123456789" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">💬 Additional Message:</label>
+                        <textarea id="message" name="message" placeholder="Any additional information or questions"></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="input-group">
+                    <button type="submit" class="submit-btn">🚀 Submit</button>
+                </div>
+            </form>
+            <p id="responseMessage"></p>
+        </div>
+    </section>
+{% endblock %}

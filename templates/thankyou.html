@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Thank You - Student Health Card{% endblock %}
+
+{% block content %}
+    <section class="thank-you">
+        <div class="container">
+            <div class="thank-you-content">
+                <h2>🎉 Thank You!</h2>
+                <p>Your registration has been successfully submitted.</p>
+                <a href="{{ url_for('home') }}" class="return-home-btn">🏠 Return to Home</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

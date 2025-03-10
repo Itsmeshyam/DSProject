@@ -3,26 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Form</title>
+    <title>Student Health Card Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>User Form</h1>
-        <form id="userForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">🩺 Health Card</div>
+        <ul>
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#about">ℹ️ About</a></li>
+            <li><a href="#benefits">🌟 Benefits</a></li>
+            <li><a href="#faq">❓ FAQs</a></li>
+            <li><a href="#register" class="btn-nav">📝 Register</a></li>
+        </ul>
+    </nav>
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your Health, Your Future!</h1>
+            <p>Register today and unlock free medical benefits for students.</p>
+            <a href="#register" class="cta-button">Get Your Card Now</a>
+        </div>
+    </section>
 
-            <button type="submit">Submit</button>
-        </form>
-        <p id="responseMessage"></p>
-    </div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>📖 About the Student Health Card</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Healthcare_image.png" alt="Health Services">
+        <p>This program ensures students receive quality healthcare services, covering checkups, medications, and emergency aid.</p>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <h2>🎯 Benefits</h2>
+        <div class="benefit-cards">
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Doctor_consultation_icon.png" alt="Medical Checkup">
+                <h3>Free Checkups</h3>
+                <p>Get regular health checkups at no cost.</p>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Medical_Store.png" alt="Discounted Medicines">
+                <h3>Discounted Medicines</h3>
+                <p>Save on prescription medicines.</p>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Hospital_icon.png" alt="Emergency Care">
+                <h3>Emergency Care</h3>
+                <p>24/7 medical assistance for emergencies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faq" class="faq">
+        <h2>❓ FAQs</h2>
+        <div class="faq-item">
+            <h3>Who is eligible?</h3>
+            <p>All students enrolled in an institution can apply.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How do I get my card?</h3>
+            <p>Register online, and collect your card from the admin office.</p>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="register" class="register">
+        <div class="container">
+            <h2>📝 Register Now</h2>
+            <form id="reg-form">
+                <div class="input-group">
+                    <label for="name">👤 Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">📧 Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="message">💬 Message:</label>
+                    <textarea id="message" name="message" placeholder="Your message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">🚀 Submit</button>
+            </form>
+            <p id="responseMessage"></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Student Health Card Program. All Rights Reserved.</p>
+    </footer>
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

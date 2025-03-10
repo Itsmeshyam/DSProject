@@ -1,107 +1,506 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: #333;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background: linear-gradient(to right, #e3f2fd, #90caf9);
 }
 
-.container {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
+/* Navigation */
+nav {
+    background: #007bff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ffeb3b;
+}
+
+/* Hero Section */
+.hero {
+    height: 60vh;
+    background: url("static/closeup-medicine-vial-flu-measles-vaccine-bottle-syringe-needle-immunization-vintage-medical-background-140368821.jpg") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
-h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+.hero-content {
+    color: white;
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 36px;
+}
+
+.cta-button {
+    background: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+}
+
+/* Sections */
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Benefits Cards */
+.benefit-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Registration Form */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.btn-nav {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #f0f4f8;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cta-button:hover {
+    background-color: #004494;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* Registration Form Styles */
+.register {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #0056b3;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
     color: #333;
 }
 
-/* Form Styles */
-#userForm {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: #555;
-    text-align: left;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-    border-color: #6a11cb;
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #0056b3;
     outline: none;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
 }
 
-textarea {
+.input-group textarea {
     resize: vertical;
     min-height: 100px;
 }
 
-button[type="submit"] {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: #fff;
-    padding: 0.75rem;
+.submit-btn {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 24px;
     border: none;
-    border-radius: 5px;
-    font-size: 1rem;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease;
+    width: 100%;
 }
 
-button[type="submit"]:hover {
-    background: linear-gradient(135deg, #2575fc, #6a11cb);
+.submit-btn:hover {
+    background-color: #004494;
 }
 
-/* Response Message */
 #responseMessage {
-    margin-top: 1rem;
-    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
     color: #333;
 }
 
-/* Responsive Design */
-@media (max-width: 480px) {
-    .container {
-        padding: 1rem;
-    }
+.social-icons img {
+    width: 24px;
+    margin-right: 10px;
+}
 
-    h1 {
-        font-size: 1.5rem;
-    }
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+}
 
-    input[type="text"],
-    input[type="email"],
-    textarea {
-        padding: 0.5rem;
-    }
+/* Center the form container */
+.register .container {
+    max-width: 800px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    button[type="submit"] {
-        padding: 0.5rem;
-    }
+/* Ensure the form takes full width within the container */
+.register form {
+    width: 100%;
+}
+
+/* Add some spacing around the form */
+.register {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+/* Center the heading */
+.register h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #0056b3;
+}
+
+/* Style for form sections */
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 10px;
+}
+
+/* Style for input groups */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Style for the submit button */
+.submit-btn {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #004494;
+}
+
+/* Style for the response message */
+#responseMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+
+/* Thank You Page Styles */
+.thank-you {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.thank-you .container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+}
+
+.thank-you-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thank-you h2 {
+    font-size: 36px;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.thank-you p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.return-home-btn {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.return-home-btn:hover {
+    background-color: #004494;
 }

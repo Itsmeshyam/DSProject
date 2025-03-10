@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./database:/app/database  # To persist DB changes outside container
+    environment:
+      - FLASK_APP=backend.app  # Point Flask to the app.py module
+      - FLASK_ENV=development

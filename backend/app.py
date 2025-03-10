@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify, render_template, url_for
 from pymongo import MongoClient
 import os
 
-app = Flask(__name__)
+app = Flask(__name__ , template_folder='../frontend/templates', static_folder='../frontend/static')
 
 # MongoDB connection URI
 mongo_uri = "mongodb+srv://dbUser:dbUserPassword@flask.rcv6r.mongodb.net/?retryWrites=true&w=majority&appName=flask"
@@ -12,7 +12,6 @@ mongo_uri = "mongodb+srv://dbUser:dbUserPassword@flask.rcv6r.mongodb.net/?retryW
 client = MongoClient(mongo_uri)
 db = client.get_database('student_health_card')  # Replace with your database name
 users_collection = db.users  # Replace with your collection name
-
 
 # Routes
 @app.route('/')
